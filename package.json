@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "vvhcs-parrallax",
+=======
+  "name": "healthcare",
+>>>>>>> c6250ab (Initial commit from Create Next App)
   "version": "0.1.0",
   "private": true,
   "scripts": {
