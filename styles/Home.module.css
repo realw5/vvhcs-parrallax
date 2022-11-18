@@ -1,5 +1,5 @@
 .container {
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
 }
 
 .main {
@@ -126,4 +126,9 @@
   .logo img {
     filter: invert(1);
   }
+}
+
+.heading {
+  display: flex;
+  align-self: center;
 }

@@ -1,6 +1,79 @@
+import react, { useRef } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
+import Fade from 'react-reveal/Fade';
+
+const ParallaxHeader = () => {
+  const mountains1 = {
+    image:
+      'mountains1.svg',
+    translateY: [27, 45],
+    opacity: [1, 1],
+    scale: [1.01, 1.01, 'easeOutCubic'],
+    shouldAlwaysCompleteAnimation: true,
+    className: 'background1'
+  };
+  const mountains2 = {
+    image:
+      'mountains2.svg',
+    translateY: [21, 50],
+    opacity: [1, 1],
+    scale: [1.04, 1.04, 'easeOutCubic'],
+    shouldAlwaysCompleteAnimation: true,
+    className: 'background2'
+  };
+
+  const mountains3 = {
+    image:
+      'mountains3.svg',
+    translateY: [21, 52],
+    opacity: [1, 1],
+    scale: [1.04, 1.08, 'easeOutCubic'],
+    shouldAlwaysCompleteAnimation: true,
+    className: 'background3'
+  };
+
+  const sun = {
+    translateY: [60, 55],
+    opacity: [1, 1],
+    scale: [1.04, 1.04, 'easeOutCubic'],
+    shouldAlwaysCompleteAnimation: true,
+    className: 'sun',
+    children: (
+      <div style={{paddingLeft: 100}}><div id="sun"/></div>
+    )
+  };
+
+  const logo = {
+    translateY: [1, 20],
+    scale: [0.6, 0.6, 'easeOutCubic'],
+    shouldAlwaysCompleteAnimation: true,
+    expanded: false,
+    children: (
+      <div className="">
+       <Image src="/logo.png" alt="Valley View HealthCare Services Logo" width={683} height={185} style={{scale: 0.5}} />
+      </div>
+    ),
+  };
+
+  const foreground = {
+    image:
+      'trees-water2.svg',
+    translateY: [3, 4],
+    scale: [1.01, 1.01, 'easeOutCubic'],
+    shouldAlwaysCompleteAnimation: true,
+    className: 'foreground'
+  };
+
+  return (
+    <ParallaxBanner
+      layers={[sun, mountains3, mountains2, mountains1, logo, foreground]}
+      className="parallax-container"
+    />
+  );
+};
 
 export default function Home() {
   return (
@@ -11,59 +84,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">VVCH!</a>
-        </h1>
+      <ParallaxProvider>
+        <ParallaxHeader />
+      </ParallaxProvider>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <section className="main">
+        <Fade bottom cascade>
+          <div style={{padding: 20, marginTop: '-10px'}}>
+            <h1 style={{margin: 'auto'}}>About Us</h1>
+            <p style={{fontSize: 18, lineHeight: 1.5}}>Valley View Healthcare Services is a locally owned and operated home health agency. We take pride in helping our community members stay home and healthy by being their advocate between our local hospitals and their physicians.</p>
+            <p style={{fontSize: 18, lineHeight: 1.5}}>Valley View Healthcare Services is a locally owned and operated home health agency. We take pride in helping our community members stay home and healthy by being their advocate between our local hospitals and their physicians.</p>
+            <p></p>
+          </div>
+        </Fade>
+        <Fade bottom cascade>
+          <div style={{padding: 20, borderTop: '1px solid rgba(255,255,255,0.1)'}}>
+            <p>Footer</p>
+            <a href="">Home</a>
+          </div>
+        </Fade>
+      </section>
     </div>
   )
 }

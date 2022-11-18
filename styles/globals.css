@@ -20,7 +20,62 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(124, 180, 194, 1) 100%);
   }
+}
+
+
+/* Laptops and Desktops */
+@media (min-width: 1025px) {
+  .parallax-container {
+    height: 100vh
+  }
+  .background1,
+  .background2,
+  .background3,
+  .foreground {
+    background-size: contain !important;
+    background-repeat: no-repeat;
+  }
+
+  .foreground {
+    background-position-y: bottom !important;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+
+  .parallax-container {
+    height: 50vh;
+  }
+
+  .background1,
+  .background2,
+  .background3,
+  .foreground {
+    background-size: contain !important;
+    background-repeat: no-repeat;
+  }
+
+  .foreground {
+    background-position-y: bottom !important;
+  }
+
+  #sun {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #F5B33B;
+    box-shadow: 0 0 25px 0 rgba(255, 249, 129, 0.6);
+    margin: auto;
+    padding-left: 50px;
+  }
+}
+
+
+.main {
+  padding: 20px;
+  background-color: #002C17;
 }
